@@ -1,3 +1,15 @@
+/*
+How to use?
+
+Login to twitter from chrome or firefox.
+Press F12 to open developer console & copy paste below javascript code.
+Open home or any tweet.
+Press CRTL + 1 
+You will see it will start like all tweets and comments on current page. 
+When the task ends it will alert "complete".
+Press CTRL + 1 to start process again.
+*/
+
 document.addEventListener ("keydown", function (zEvent) {
     if (zEvent.ctrlKey &&  zEvent.key === "1") {  // case sensitive
                 console.log("withn");
