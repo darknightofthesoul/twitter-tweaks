@@ -1,0 +1,33 @@
+/*
+  Open twitter account from Chrome or Firefox
+  Goto your profile and select tab like "Tweets", "Tweets & Replies" or "Media"
+  Press F12 to open dev. console
+  Copy paste below code and it will start remving tweets from the selected tab
+  Refresh the page when done
+*/
+
+// Keep on scrolling to the bottom to load new tweets
+window.setInterval(function() {
+    window.scrollTo(0, document.body.scrollHeight);
+}, 1000);
+
+// Open drop menu on each post .. top right corner down arrow button
+window.setInterval(function() {
+    var dropbtns = document.querySelectorAll('[role="button"][data-testid="caret"]');
+    if (dropbtns.length > 0)
+        dropbtns[0].click();
+}, 500);
+
+// Click Delete button
+window.setInterval(function() {
+    var deletebtns = document.querySelectorAll('[role="menuitem"][tabindex="0"]');
+    if (deletebtns.length > 0)
+        deletebtns[0].click();
+}, 500);
+
+// Click confirm delete button
+window.setInterval(function() {
+    var confirmbtns = document.querySelectorAll('[role="button"][data-testid="confirmationSheetConfirm"]');
+    if (confirmbtns.length > 0)
+        confirmbtns[0].click();
+}, 500);
