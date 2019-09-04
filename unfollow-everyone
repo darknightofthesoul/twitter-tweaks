@@ -1,0 +1,36 @@
+/*
+  Open twitter account from Chrome or Firefox
+  Goto your profile -> Following window
+  Press F12 to open dev. console
+  Copy paste below code and it will start unfollowing
+  Refresh the page when done
+*/
+
+// Keep scrolling down to page to load new followings
+window.setInterval(function() {
+    window.scrollTo(0, document.body.scrollHeight);
+}, 400);
+
+// Click unfollow button
+window.setInterval(function() {
+    var elements = document.querySelectorAll('[role="button"]');
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].getAttribute("data-testid") != null) {
+            if (elements[i].getAttribute("data-testid").indexOf('unfollow') != -1) {
+                elements[i].click();
+            }
+        }
+    }
+}, 100);
+
+// Click confirm delete button
+window.setInterval(function() {
+    var elements = document.querySelectorAll('[role="button"]');
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].getAttribute("data-testid") != null) {
+            if (elements[i].getAttribute("data-testid") == 'confirmationSheetConfirm') {
+                elements[i].click();
+            }
+        }
+    }
+}, 100);
