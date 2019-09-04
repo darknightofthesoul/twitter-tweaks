@@ -1,0 +1,29 @@
+document.addEventListener ("keydown", function (zEvent) {
+    if (zEvent.ctrlKey &&  zEvent.key === "1") {  // case sensitive
+                console.log("withn");
+                window._clickbait =function() {
+                                if (window._idx == window._elements.length-1) {
+                                                                alert('completed');
+                                                } else {                   
+                                                                if (window._elements[window._idx].getAttribute("data-testid") == 'like') {
+                                                                                console.log(window._elements[window._idx].id + ' Clicking Now');
+                                                                                window._elements[window._idx].click();
+                                                                } 
+                                                                window._idx ++;
+                                                                window.setTimeout(window._clickbait,300);
+                                                }
+                };
+                
+ 
+                /////////////////////////////////////////////////////////////////
+                // Fetch elements
+                window._elements = document.querySelectorAll('[role="button"]');
+                window._idx = 0;
+                
+                // Start Process
+                window.setTimeout(window._clickbait);
+                                ////////////////////////////////////////////////////////////////
+                                zEvent.preventDefault();
+                                zEvent.stopPropagation();
+    }
+});
