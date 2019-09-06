@@ -1,0 +1,13 @@
+window.setInterval(function() {
+	window.scrollTo(0,document.body.scrollHeight);
+},5000);
+
+window.setInterval(function(){
+	var elements = document.querySelectorAll("div[role='button']");
+	elements.forEach(function(item,idx) {
+		var x = item.getAttribute("data-testid");
+		if (x)
+		if (x.indexOf("-follow") != -1)
+			item.click();
+	});
+},3000);
