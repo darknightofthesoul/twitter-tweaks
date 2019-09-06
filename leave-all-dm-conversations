@@ -1,0 +1,35 @@
+// Open conversation
+window.setInterval(function() {
+	var element = document.querySelector('div[data-testid="conversation"]');
+	if (element)
+		element.click();
+},2000);
+
+// Open Conversation settings
+window.setInterval(function() {
+	var element = document.querySelector('a[role="button"][aria-label="Conversation info"]');
+	if (element)
+		element.click();
+},1500);
+
+
+// Click leave conversation
+window.setInterval(function() {
+	var spans = document.querySelectorAll('div[role="button"] div[dir="auto"] span');
+		spans.forEach(function(item,idx) {
+			if (item.innerHTML == "Leave conversation") {
+				item.parentNode.parentNode.click();
+				return true;
+			} 
+				
+		});	
+
+},1000);
+
+// Click confirm leave conversation
+window.setInterval(function() {
+	var element = document.querySelector('div[role="button"][data-testid="confirmationSheetConfirm"]');
+	if (element)
+		element.click();	
+
+},500);
