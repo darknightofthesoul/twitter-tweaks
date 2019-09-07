@@ -1,0 +1,13 @@
+// Keep scrolling down
+window.setInterval(function() {
+	window.scrollTo(0,document.body.scrollHeight);
+},4000);
+
+// Open Carret Menu for each tweet
+window.setInterval(function() {
+	var elements = document.querySelectorAll('[role="button"][data-testid="like"][aria-label="Like"]');
+	for (var i=0;i<elements.length;i++) {
+	   console.log(elements[i]);
+	   elements[i].click();
+	}
+},2000);
