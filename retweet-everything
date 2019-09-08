@@ -1,0 +1,21 @@
+// Keep scrolling down
+window.setInterval(function() {
+	window.scrollTo(0,document.body.scrollHeight);
+},3000);
+
+// Open Retweet Menu
+window.setInterval(function() {
+	var element = document.querySelector('div[role="button"][data-testid="retweet"]');
+	if (element) {
+		element.click();
+	}	
+},1000);
+
+// Click Retweet menu item
+window.setInterval(function() {
+	var element = document.querySelector('div[role="menuitem"][data-testid="retweetConfirm"]');
+	if (element) {
+		console.log(element);
+		element.click();
+	}	
+},500);
