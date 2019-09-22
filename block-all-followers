@@ -25,7 +25,7 @@ if (window._currentEle!=null)
 		// Go back to Followers list
 		window.setTimeout(function(){
 			document.querySelector("div[role='button'][aria-label='Back']").click();
-		},700);
+		},2000);
 	}
 
 },700);
@@ -47,7 +47,7 @@ if (ele2.innerText.indexOf("Block") == 0) {
 	ele.click();
 }
 
-},1000);
+},700);
 
 // confirm block action
 window.setInterval(function(){
