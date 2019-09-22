@@ -1,0 +1,59 @@
+window._blocked = [];
+// Open profile from followers
+window.setInterval(function(){
+window.scrollTo(0,document.body.scrollHeight);
+window._currentEle = null;
+var eles = document.querySelectorAll("div[aria-label='Timeline: Followers'] a[role='link']");
+eles.forEach(function(item,idx){
+	// Select the one that is not already blocked
+	window._isBlocked = false;
+	window._blocked.forEach(function(it,i){
+		if (item.href == it) {
+			console.log('Already Blocked',item);
+			window._isBlocked = true;
+		};
+	});
+	if (!window._isBlocked) {
+		window._currentEle = item;
+	}
+});
+
+if (window._currentEle!=null)
+	if (window._currentEle.click) {
+		window._blocked.push(window._currentEle.href);
+		window._currentEle.click();
+		// Go back to Followers list
+		window.setTimeout(function(){
+			document.querySelector("div[role='button'][aria-label='Back']").click();
+		},700);
+	}
+
+},700);
+
+// open user actions menu of profile
+window.setInterval(function(){
+var ele = document.querySelector("div[role='button'][data-testid='userActions']");
+if (ele)
+	if (ele.click)
+		ele.click();
+
+},200);
+
+// Select block option
+window.setInterval(function(){
+var ele = document.querySelector("div[role='menuitem'][data-testid='block']");
+if (ele)
+	if (ele.click)
+		ele.click();
+
+},150);
+
+// confirm block action
+window.setInterval(function(){
+var ele = document.querySelector("div[role='button'][data-testid='confirmationSheetConfirm']");
+if (ele)
+	if (ele.click)
+		ele.click();
+
+},100);
+
