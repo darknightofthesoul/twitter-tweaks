@@ -37,16 +37,17 @@ if (ele)
 	if (ele.click)
 		ele.click();
 
-},200);
+},1000);
 
 // Select block option
 window.setInterval(function(){
 var ele = document.querySelector("div[role='menuitem'][data-testid='block']");
-if (ele)
-	if (ele.click)
-		ele.click();
+var ele2 = ele.querySelector("div div span");
+if (ele2.innerText.indexOf("Block") == 0) {
+	ele.click();
+}
 
-},150);
+},1000);
 
 // confirm block action
 window.setInterval(function(){
@@ -56,4 +57,3 @@ if (ele)
 		ele.click();
 
 },100);
-
