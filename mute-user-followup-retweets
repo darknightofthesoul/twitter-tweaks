@@ -1,0 +1,48 @@
+/* "Mute" follow-back / Retweet tweets that contains a list of users*/
+
+// Keep scrolling to the bottom to load new tweets
+window.setInterval(function() {
+	window.scrollTo(0,document.body.scrollHeight);
+},5000);
+
+
+// Identify Tweets that contains user refrences, if yes then open caret menu
+window.setInterval(function(){
+	
+	var tweets = document.querySelectorAll("div[data-testid='tweet']");
+	console.log(tweets.length,"tweets");
+
+	tweets.forEach(function(tweet,idx) {
+		var link_eles = tweet.querySelectorAll("a[role='link']");
+		console.log(link_eles.length,"Links in tweet");
+		
+		var user_count = 0; 
+		for (var i=0;i<link_eles.length;i++) {
+			if (link_eles[i].innerHTML.indexOf('@') != -1)
+			user_count ++;
+		}		
+		
+		console.log(user_count,' Users found in tweet');		
+
+			if (user_count >= 5) {
+				// Open Caret menu and Click mute
+				var menu = tweet.querySelector("div[role='button'][data-testid='caret']");
+				console.log(menu,"Open Caret Menu");
+				if (menu) {
+					menu.click();
+				}
+				
+			}
+	});
+},1000);
+
+/*Click Mute menuitem*/
+window.setInterval(function(){
+	var eles = document.querySelectorAll("div[role='menuitem'] div div span");
+	eles.forEach(function(ele,idx) {
+		if (ele.innerText.indexOf('Mute') != -1) {
+			console.log("=== >",ele.innerText);
+			ele.click();
+		}
+	});
+},500);
